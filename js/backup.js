@@ -108,9 +108,13 @@ function openAbout(){
 
     + '<div style="font-size:.78em;font-weight:800;color:#FFD27A;margin:16px 0 8px">更新日志</div>'
     + '<div style="font-size:.72em;line-height:1.9;color:#FFE8DC">'
-    + '<b>v1.1</b><br>· 图鉴 '+CATALOG.length+' 枚，题库 '+QUIZ.length+' 题<br>'
-    + '· 新增 Web / PWA 版，可添加到主屏幕离线使用<br>'
-    + '· 安卓与网页双端支持备份导出与恢复，数据互通<br><br>'
+    + '<b>v1.2</b>（当前）<br>· 图鉴 '+CATALOG.length+' 枚，题库 '+QUIZ.length+' 题<br>'
+    + '· 题目答案位置随机打散，选项统一为 4 个<br>'
+    + '· 修复分类筛选不生效、进度条显示错误<br>'
+    + '· 安卓与网页双端支持备份导出与恢复，JSON 互通<br>'
+    + '· Web 版拆包，首屏体积降至 4 KB<br><br>'
+    + '<b>v1.1</b><br>· 图鉴扩充至 34 枚，题库 30 题<br>'
+    + '· 新增 Web / PWA 版，可添加到主屏幕离线使用<br><br>'
     + '<b>v1.0</b><br>· 图鉴墙、盲盒抽取、图鉴故事、六维雷达图</div>'
 
     + '<div style="font-size:.78em;font-weight:800;color:#FFD27A;margin:16px 0 8px">免责声明</div>'

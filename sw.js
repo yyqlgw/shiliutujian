@@ -4,7 +4,7 @@
    - 静态资源（css/js/图标）：缓存优先，后台静默更新
    - 版本号变化时清掉旧缓存 */
 
-const VERSION = 'shiliu-v1.1.0';
+const VERSION = 'shiliu-v1.2.0';
 const CACHE = VERSION;
 
 const CORE = [
