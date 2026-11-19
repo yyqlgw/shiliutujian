@@ -1,0 +1,100 @@
+红石榴图鉴 · Web / PWA 版使用说明
+=============================================
+
+一、目录结构（拆包说明）
+  index.html              首屏骨架（仅 3 KB，秒开）
+  css/app.css             全部样式（1 个文件，浏览器强缓存）
+  js/data.js              图鉴 + 题库数据（与安卓 assets 同源生成）
+  js/state.js             状态存储、日期、称号、备份字段
+  js/icons.js             34 种 SVG 图鉴纹样
+  js/play.js              浇水 / 答题 / 音效
+  js/backup.js            备份导出导入 + 关于页
+  js/ui.js                三个页面的渲染 + 雷达图
+  js/app.js               启动入口
+  sw.js                   Service Worker（离线缓存）
+  manifest.webmanifest    应用信息（名称/图标/全屏/竖屏）
+  assets/icon-192.png     主屏幕图标
+  assets/icon-512.png     高清图标
+  assets/icon-maskable-512.png  安卓自适应图标
+  assets/apple-touch-icon.png   iOS 主屏图标（180px）
+  assets/splash-*.jpg     iOS 启动图（8 张，按机型自动匹配）
+  tools/make-icons.py     图标与启动图生成脚本（可选）
+
+  拆分的好处：
+  · 首屏 HTML 只有 3 KB，样式/数据/逻辑并行下载，不互相阻塞
+  · 每个文件独立缓存，改版本号后只需重新下载变化的文件
+  · 内容更新（改图鉴）只动 data.js，不影响其他缓存
+
+二、上传到 GitHub Pages（推荐，免费永久）
+  1. 注册 / 登录 GitHub（https://github.com）
+  2. 右上角 + → New repository
+     仓库名例如：shiliu（英文小写）
+     选 Public → Create repository
+  3. 进入仓库 → Add file → Upload files
+     把 web 目录下的【全部文件和文件夹】拖进去：
+       index.html、sw.js、manifest.webmanifest、robots.txt、
+       _config.yml、.nojekyll、css/、js/、assets/
+     注意：要保留目录结构（css、js、assets 三个文件夹）
+     然后 Commit changes
+  4. 仓库 → Settings → 左侧 Pages
+     Source 选「Deploy from a branch」
+     Branch 选 main，目录选 / (root) → Save
+  5. 等 1~2 分钟，页面上方会出现：
+       https://你的用户名.github.io/shiliu/
+     这就是你的永久网址，可以发给任何人。
+
+  ⚠ 常见问题
+  · 上传后页面空白：检查 css/、js/、assets/ 三个文件夹是否也上传了
+  · 改了代码没生效：Service Worker 有缓存，等 1 分钟或强制刷新
+  · 想用自定义域名：Settings → Pages → Custom domain 填写即可
+
+三、iPhone / iPad 使用（PWA）
+  1. 用 Safari 打开上面的网址（必须 Safari，微信内打开不行）
+  2. 等页面完全加载（约 1 秒）
+  3. 点底部「分享」按钮 → 向下找「添加到主屏幕」→ 添加
+  4. 桌面出现「红石榴图鉴」图标，点开就是全屏无地址栏，与原生 App 一致
+  5. 首次加载后资源已缓存，之后飞行模式也能正常打开
+
+四、安卓 / 电脑浏览器
+  · 安卓 Chrome / Edge：直接打开网址；菜单里也有「安装应用」/「添加到主屏幕」
+  · 电脑：Chrome / Edge 打开即可，按 F12 可切换手机模拟视图
+  · 安卓用户也可以直接安装 APK（功能完全一致）
+
+五、数据备份与恢复（重点）
+  数据保存在浏览器本地（localStorage），不上传任何服务器。
+
+  导出：我的 → 导出备份
+    · iPhone：弹出系统分享面板 → 选「存储到文件」，存到「文件」App 或 iCloud
+    · 电脑 / 安卓：直接下载一个 JSON 文件，文件名带日期
+
+  导入：我的 → 导入恢复 → 选择之前导出的 JSON
+
+  ★ 安卓与网页的备份文件【完全互通】：
+    · 网页导出的 JSON，可以导入安卓 App
+    · 安卓 App 导出的 JSON，可以导入网页版
+    换手机、换浏览器、重装系统都可以靠这个迁移进度。
+
+  ⚠ iOS 有一条硬规则：连续约 7 天不打开这个网站，系统可能清掉站点数据。
+    建议每周打开一次，并定期导出备份。
+
+六、离线与缓存
+  · 首次打开后，所有资源会被 Service Worker 缓存
+  · 之后断网也能打开（飞行模式可测试）
+  · 更新版本后，第二次打开会自动拿到新版
+
+七、竖屏说明
+  iOS 不允许网页锁定方向，横屏时会显示「请竖屏使用」遮罩，转回竖屏即可。
+
+八、本地预览（改代码时用）
+  cd D:\workplace\ShiliuTujian\web
+  python -m http.server 8899
+  然后浏览器打开 http://127.0.0.1:8899
+  注意：直接双击 index.html（file:// 协议）会导致 Service Worker 失效，
+        功能仍可用但没有离线能力，正式使用请用 http(s) 打开。
+
+九、更新图标（可选）
+  修改 tools/make-icons.py 后运行：
+  python tools/make-icons.py
+
+长治学院 · 物理系 · 光电2602班
+本作品为思政实践课程作业，仅供学习交流，不作商业用途。

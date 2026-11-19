@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>红石榴图鉴</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="description" content="盲盒图鉴 · 民族团结文化行：每日抽盒点亮图鉴，读懂每一枚背后的文化故事">
+<meta name="theme-color" content="#E8402F">
+
+<!-- ============ Apple PWA 适配 ============ -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="红石榴图鉴">
+<meta name="format-detection" content="telephone=no">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="assets/icon-192.png">
+
+<!-- iOS 启动图：按机型精确匹配，消除打开时的白屏 -->
+<link rel="apple-touch-startup-image" href="assets/splash-1290x2796.jpg" media="(device-width:430px) and (device-height:932px) and (-webkit-device-pixel-ratio:3)">
+<link rel="apple-touch-startup-image" href="assets/splash-1179x2556.jpg" media="(device-width:393px) and (device-height:852px) and (-webkit-device-pixel-ratio:3)">
+<link rel="apple-touch-startup-image" href="assets/splash-1284x2778.jpg" media="(device-width:428px) and (device-height:926px) and (-webkit-device-pixel-ratio:3)">
+<link rel="apple-touch-startup-image" href="assets/splash-1170x2532.jpg" media="(device-width:390px) and (device-height:844px) and (-webkit-device-pixel-ratio:3)">
+<link rel="apple-touch-startup-image" href="assets/splash-1242x2688.jpg" media="(device-width:414px) and (device-height:896px) and (-webkit-device-pixel-ratio:3)">
+<link rel="apple-touch-startup-image" href="assets/splash-1125x2436.jpg" media="(device-width:375px) and (device-height:812px) and (-webkit-device-pixel-ratio:3)">
+<link rel="apple-touch-startup-image" href="assets/splash-828x1792.jpg" media="(device-width:414px) and (device-height:896px) and (-webkit-device-pixel-ratio:2)">
+<link rel="apple-touch-startup-image" href="assets/splash-750x1334.jpg" media="(device-width:375px) and (device-height:667px) and (-webkit-device-pixel-ratio:2)">
+
+<!-- 样式：单独文件，浏览器可缓存 -->
+<link rel="stylesheet" href="css/app.css">
+
+<!-- 数据与脚本：defer 并行下载，不阻塞首屏 -->
+<script src="js/data.js" defer></script>
+<script src="js/state.js" defer></script>
+<script src="js/icons.js" defer></script>
+<script src="js/play.js" defer></script>
+<script src="js/backup.js" defer></script>
+<script src="js/ui.js" defer></script>
+<script src="js/app.js" defer></script>
+</head>
+<body>
+<div id="rot">请竖屏使用</div>
+
+<div id="app">
+  <div id="hd">
+    <div class="t">红石榴图鉴</div>
+    <div class="s">盲盒图鉴 · 民族团结文化行</div>
+    <div class="d" id="dateStr"></div>
+    <span class="sp" style="right:26%;top:52%">✦</span>
+    <span class="sp" style="right:12%;bottom:16%">✦</span>
+  </div>
+  <div id="main"></div>
+  <div id="nav">
+    <div class="on" data-tab="0"><span class="ic">▦</span>图鉴</div>
+    <div data-tab="1"><span class="ic">◆</span>抽盒</div>
+    <div data-tab="2"><span class="ic">●</span>我的</div>
+  </div>
+</div>
+
+<div id="mask"></div>
+<div id="toast"></div>
+</body>
+</html>

@@ -1,0 +1,13 @@
+# ---------- GitHub Pages ----------
+# 静态站点，无需构建。文件名以 _ 开头的会被 Jekyll 忽略，这里全部设为不处理。
+include:
+  - "*.js"
+  - "*.json"
+  - "*.webmanifest"
+
+# 关闭 Jekyll 处理，避免下划线目录被忽略
+plugins: []
+
+# 设置缓存头由 GitHub 控制，这里仅消除 404 噪音
+exclude:
+  - tools/
